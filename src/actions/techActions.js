@@ -1,18 +1,64 @@
-import { GET_TECHS, LOGS_ERROR } from "./types";
+import { GET_TECHS, TECHS_ERROR, SET_LOADING, ADD_TECH, DELETE_TECH } from "./types";
 
-// Get technicians
+// Get technicians from server
 export const getTechs = () => async dispatch => {
+    setLoading();
     try {
-        const res = await fetch('/techs')
+        const res = await fetch("/techs");
         const data = await res.json();
         dispatch({
             type: GET_TECHS,
-            payload: data
-        })
+            payload: data,
+        });
     } catch (err) {
         dispatch({
-            type: LOGS_ERROR,
-            payload: err.response.data,
-        })
+            type: TECHS_ERROR,
+            payload: err.response.statusText,
+        });
     }
-}
+};
+
+// Add technician
+export const addTech = tech => async dispatch => {
+    setLoading();
+    try {
+        const res = await fetch("/techs", {
+            method: "POST",
+            body: JSON.stringify(tech),
+            headers: { "Content-Type": "application/json" },
+        });
+        const data = await res.json();
+
+        dispatch({ type: ADD_TECH, payload: data });
+    } catch (err) {
+        dispatch({
+            type: TECHS_ERROR,
+            payload: err.response.statusText,
+        });
+    }
+};
+
+// Delete Tech
+export const deleteTech = id => async dispatch => {
+    setLoading();
+    try {
+        await fetch(`/techs/${id}`, {
+            method: "DELETE",
+        });
+        dispatch({
+            type: DELETE_TECH,
+            payload: id,
+        });
+    } catch (err) {
+        dispatch({
+            type: TECHS_ERROR,
+            payload: err.response.statusText,
+        });
+    }
+};
+// set loading to true
+const setLoading = () => {
+    return {
+        type: SET_LOADING,
+    };
+};

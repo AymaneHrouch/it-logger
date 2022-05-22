@@ -4,5 +4,5 @@ import techReducer from "./techReducer";
 
 export default combineReducers({
     log: logReducer,
-    techs: techReducer
+    tech: techReducer
 });
