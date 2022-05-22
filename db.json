@@ -1,11 +1,11 @@
 {
   "logs": [
     {
+      "id": 1,
       "message": "Changed network card in server 007",
       "attention": false,
-      "tech": "Sam Smith",
-      "date": "2019-05-31T15:46:10.179Z",
-      "id": 1
+      "tech": "Aymane Hrouch",
+      "date": "2022-05-22T13:41:34.307Z"
     },
     {
       "id": 2,
@@ -37,13 +37,6 @@
       "tech": "John Doe",
       "date": "2022-05-15T23:54:10.934Z",
       "id": 6
-    },
-    {
-      "message": "hrrrr",
-      "attention": false,
-      "tech": "John Doe",
-      "date": "2022-05-22T11:32:43.357Z",
-      "id": 7
     }
   ],
   "techs": [
