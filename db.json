@@ -30,6 +30,20 @@
     },
     {
       "id": 5
+    },
+    {
+      "message": "new Log",
+      "attention": true,
+      "tech": "John Doe",
+      "date": "2022-05-15T23:54:10.934Z",
+      "id": 6
+    },
+    {
+      "message": "hrrrr",
+      "attention": false,
+      "tech": "John Doe",
+      "date": "2022-05-22T11:32:43.357Z",
+      "id": 7
     }
   ],
   "techs": [
